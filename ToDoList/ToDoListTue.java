@@ -3,7 +3,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.*;
-import java.awt.Color;
+import java.awt.*;
 
 
 public class ToDoListTue extends JFrame{
@@ -13,7 +13,7 @@ public class ToDoListTue extends JFrame{
 
         //creating a frame
         setTitle("Tuesday ToDo List");
-        setSize(500,500);
+        setSize(520,500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
         getContentPane().setBackground(Color.BLUE);
@@ -29,6 +29,7 @@ public class ToDoListTue extends JFrame{
 
         
         JButton removeButton = new JButton("Remove");
+        removeButton.setBounds(415, 45, 81, 20);
 
         JButton buttonWednesday = new JButton(">Wednesday");
         buttonWednesday.setBounds(380, 400, 110, 25);
@@ -42,6 +43,7 @@ public class ToDoListTue extends JFrame{
         add(buttonWednesday);
         add(addButton);
         add(backButton);
+        add(removeButton);
 
 
         addButton.addActionListener(new ActionListener() {
@@ -58,6 +60,22 @@ public class ToDoListTue extends JFrame{
                 }
             });
             
+            removeButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Component[] components = getContentPane().getComponents();
+                    for (Component component : components) {
+                        if (component instanceof JCheckBox) {
+                            JCheckBox checkBox = (JCheckBox) component;
+                            if (checkBox.isSelected()) {
+                                remove(checkBox);
+                            }
+                        }
+                    }
+                    revalidate(); // Revalidate the frame to reflect changes
+                    repaint(); // Repaint the frame to reflect changes
+                }
+            });
 
         buttonWednesday.addActionListener(new ActionListener() {
             @Override

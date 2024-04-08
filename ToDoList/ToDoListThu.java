@@ -1,6 +1,6 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.Color;
+import java.awt.*;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.*;
@@ -11,7 +11,7 @@ public class ToDoListThu extends JFrame{
         
         //creating a frame
         setTitle("Thursday ToDo List");
-        setSize(500,500);
+        setSize(520,500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
         getContentPane().setBackground(Color.PINK);
@@ -24,7 +24,9 @@ public class ToDoListThu extends JFrame{
 
         JButton addButton = new JButton("Add");
         addButton.setBounds(420, 20, 60, 20);
+
         JButton removeButton = new JButton("Remove");
+        removeButton.setBounds(415, 45, 81, 20);
 
         JButton buttonDay = new JButton(">Friday");
         buttonDay.setBounds(380, 400, 100, 25);
@@ -38,6 +40,7 @@ public class ToDoListThu extends JFrame{
         add(buttonDay);
         add(addButton);
         add(backButton);
+        add(removeButton);
 
 
         addButton.addActionListener(new ActionListener() {
@@ -51,6 +54,23 @@ public class ToDoListThu extends JFrame{
                 add(checkBox);
                 revalidate(); // Revalidate the frame to reflect changes
                 repaint(); // Repaint the frame to reflect changes
+                }
+            });
+
+            removeButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Component[] components = getContentPane().getComponents();
+                    for (Component component : components) {
+                        if (component instanceof JCheckBox) {
+                            JCheckBox checkBox = (JCheckBox) component;
+                            if (checkBox.isSelected()) {
+                                remove(checkBox);
+                            }
+                        }
+                    }
+                    revalidate(); // Revalidate the frame to reflect changes
+                    repaint(); // Repaint the frame to reflect changes
                 }
             });
             
