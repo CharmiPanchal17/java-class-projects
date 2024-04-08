@@ -5,6 +5,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.*;
 
+
 public class ToDoListWed extends JFrame{
 
     public ToDoListWed(){
@@ -29,11 +30,18 @@ public class ToDoListWed extends JFrame{
         JButton buttonThurssday = new JButton(">Thursday");
         buttonThurssday.setBounds(380, 400, 100, 25);
 
+        JButton backButton = new JButton("Back<");
+        backButton.setBounds(300, 400, 70, 25);
+
+    
+
        //adding components to frame2 
         add(label2);
         add(text2);
         add(buttonThurssday);
         add(addButton);
+        add(backButton);
+        
 
 
         addButton.addActionListener(new ActionListener() {
@@ -42,7 +50,7 @@ public class ToDoListWed extends JFrame{
                 String text = text2.getText();
                 JCheckBox checkBox = new JCheckBox();
                 checkBox.setText(text);
-                checkBox.setSelected(true);
+                checkBox.setSelected(false);
                 checkBox.setBounds(20, getContentPane().getComponentCount() * 20 + 60, 300, 20); // X-position is set and Y-position keeps on changing
                 add(checkBox);
                 revalidate(); // Revalidate the frame to reflect changes
@@ -56,8 +64,21 @@ public class ToDoListWed extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 
                 if(e.getSource() == buttonThurssday){
+                
+                    new ToDoListThu();
+                    
+                }
+            }
+        });
 
-                    ToDoListThu frame2 = new ToDoListThu();
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+                if(e.getSource() == backButton){
+                    dispose();
+                    new ToDoListTue();
+                    
                 }
             }
         });

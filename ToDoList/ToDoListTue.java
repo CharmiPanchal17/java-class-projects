@@ -5,10 +5,12 @@ import javax.swing.JFrame;
 import javax.swing.*;
 import java.awt.Color;
 
+
 public class ToDoListTue extends JFrame{
 
     public ToDoListTue(){
         
+
         //creating a frame
         setTitle("Tuesday ToDo List");
         setSize(500,500);
@@ -24,16 +26,22 @@ public class ToDoListTue extends JFrame{
 
         JButton addButton = new JButton("Add");
         addButton.setBounds(420, 20, 60, 20);
+
+        
         JButton removeButton = new JButton("Remove");
 
         JButton buttonWednesday = new JButton(">Wednesday");
         buttonWednesday.setBounds(380, 400, 110, 25);
+
+        JButton backButton = new JButton("Back<");
+        backButton.setBounds(300, 400, 70, 25);
 
        //adding components to frame2 
         add(label2);
         add(text2);
         add(buttonWednesday);
         add(addButton);
+        add(backButton);
 
 
         addButton.addActionListener(new ActionListener() {
@@ -42,7 +50,7 @@ public class ToDoListTue extends JFrame{
                 String text = text2.getText();
                 JCheckBox checkBox = new JCheckBox();
                 checkBox.setText(text);
-                checkBox.setSelected(true);
+                checkBox.setSelected(false);
                 checkBox.setBounds(20, getContentPane().getComponentCount() * 20 + 60, 300, 20); // X-position is set and Y-position keeps on changing
                 add(checkBox);
                 revalidate(); // Revalidate the frame to reflect changes
@@ -56,8 +64,20 @@ public class ToDoListTue extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 
                 if(e.getSource() == buttonWednesday){
+                    
+                    new ToDoListWed();
+                    
+                }
+            }
+        });
 
-                    ToDoListWed frame2 = new ToDoListWed();
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+                if(e.getSource() == backButton){
+                    dispose();
+                    new ToDoListMon();
                 }
             }
         });

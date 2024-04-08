@@ -29,11 +29,15 @@ public class ToDoListWeekend extends JFrame{
         JButton buttonDay = new JButton("Monday<");
         buttonDay.setBounds(380, 400, 100, 25);
 
+        JButton backButton = new JButton("Back<");
+        backButton.setBounds(300, 400, 70, 25);
+
        //adding components to frame2 
         add(label2);
         add(text2);
         add(buttonDay);
         add(addButton);
+        add(backButton);
 
 
         addButton.addActionListener(new ActionListener() {
@@ -42,7 +46,7 @@ public class ToDoListWeekend extends JFrame{
                 String text = text2.getText();
                 JCheckBox checkBox = new JCheckBox();
                 checkBox.setText(text);
-                checkBox.setSelected(true);
+                checkBox.setSelected(false);
                 checkBox.setBounds(20, getContentPane().getComponentCount() * 20 + 60, 300, 20); // X-position is set and Y-position keeps on changing
                 add(checkBox);
                 revalidate(); // Revalidate the frame to reflect changes
@@ -56,8 +60,20 @@ public class ToDoListWeekend extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 
                 if(e.getSource() == buttonDay){
+                    
+                    new ToDoListMon();
+                    
+                }
+            }
+        });
 
-                    ToDoListMon frame2 = new ToDoListMon();
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+                if(e.getSource() == backButton){
+                    dispose();
+                    new ToDoListFri();
                 }
             }
         });
