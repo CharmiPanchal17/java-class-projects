@@ -37,11 +37,15 @@ public class MoneyExchange {
         JLabel label3 = new JLabel("Select the currency to convert to: ");
         label3.setBounds(390, 20, 250, 20);
 
-        JLabel label4 = new JLabel("The converted currency is: ");
+        JLabel label4 = new JLabel();
         label4.setBounds(30, 400, 250, 20);
 
         JButton convertButton = new JButton("Convert");
         convertButton.setBounds(590, 200, 100, 30);
+
+        JLabel label5 = new JLabel("*THESE ARE ASSUMED EXCHANGED RATES.");
+        label5.setBounds(450, 520, 300, 30);
+
 
         frame.add(comboBox1);
         frame.add(comboBox2);
@@ -49,6 +53,7 @@ public class MoneyExchange {
         frame.add(label2);
         frame.add(label3);
         frame.add(label4);
+        frame.add(label5);
         frame.add(amount);
         frame.add(convertButton);
 
@@ -62,7 +67,34 @@ public class MoneyExchange {
 
                 if (fromCurrency=="Ugx" && toCurrency=="USD") {
                     double result = amountValue*(0.00026);
+                    label4.setText("The converted currency is: " + result);
                 }
+
+                else if (fromCurrency=="Ugx" && toCurrency=="EUR") {
+                    double result = amountValue*(0.00025);
+                    label4.setText("The converted currency is: " + result);
+                }
+
+                else if (fromCurrency=="USD" && toCurrency=="Ugx") {
+                    double result = amountValue*(3805);
+                    label4.setText("The converted currency is: " + result);
+                }
+
+                else if (fromCurrency=="EUR" && toCurrency=="Ugx") {
+                    double result = amountValue*(4050);
+                    label4.setText("The converted currency is: " + result);
+                }
+
+                else if (fromCurrency == "USD" && toCurrency == "EUR") {
+                    double result = amountValue*0.94;
+                    label4.setText("The converted currency is: " + result);
+                }
+
+                else if (fromCurrency == "EUR" && toCurrency =="USD") {
+                    double result = amountValue*1.05;
+                    label4.setText("The converted currency is: " + result);
+                }
+
             }
         });
 
