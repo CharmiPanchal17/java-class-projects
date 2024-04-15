@@ -14,7 +14,7 @@ public class ToDoListWeekend extends JFrame{
         setSize(520,500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
-        getContentPane().setBackground(Color.ORANGE);
+        getContentPane().setBackground(new Color(0xC080C0));
 
         JLabel label2 = new JLabel("Enter what to add to your todo list : ");
         label2.setBounds(20, 20, 250, 20);

@@ -15,7 +15,7 @@ public class ToDoListMon extends JFrame{
         setSize(520,500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
-        getContentPane().setBackground(Color.LIGHT_GRAY);
+        getContentPane().setBackground(new Color(0xE8F8FC));
 
         JLabel label1 = new JLabel("Enter what to add to your todo list : ");
         label1.setBounds(20, 20, 250, 20);
@@ -59,12 +59,12 @@ public class ToDoListMon extends JFrame{
         removeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Component[] components = getContentPane().getComponents();
-                for (Component component : components) {
-                    if (component instanceof JCheckBox) {
+                Component[] components = getContentPane().getComponents();  //this gets all components from the frame ie labels, buttons, checkboxes etc.
+                for (Component component : components) {       //this will iterate over each and every component
+                    if (component instanceof JCheckBox) {     // this will check if the current component is a checkbox
                         JCheckBox checkBox = (JCheckBox) component;
-                        if (checkBox.isSelected()) {
-                            remove(checkBox);
+                        if (checkBox.isSelected()) {         //this will check if the checkbox if it is selected
+                            remove(checkBox);                //if the checkbox is selected, it will remove it from the list
                         }
                     }
                 }
