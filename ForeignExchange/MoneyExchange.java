@@ -50,20 +50,29 @@ public class MoneyExchange {
 
         JLabel extraLabel3 = new JLabel();
 
+        JLabel extraLabel4 = new JLabel();
+
+        
+
         JPanel resultPanel1 = new JPanel();
-        resultPanel1.setBounds(20, 300, 380, 50);
+        resultPanel1.setBounds(20, 300, 380, 40);
         resultPanel1.setBackground(new Color(0xCECECE));
         resultPanel1.add(extraLabel1);
 
         JPanel resultPanel2 = new JPanel();
-        resultPanel2.setBounds(20, 390, 380, 50);
+        resultPanel2.setBounds(20, 360, 380, 40);
         resultPanel2.setBackground(new Color(0xCECECE));
         resultPanel2.add(extraLabel2);
 
         JPanel resultPanel3 = new JPanel();
-        resultPanel3.setBounds(20, 480, 380, 50);
+        resultPanel3.setBounds(20, 420, 380, 40);
         resultPanel3.setBackground(new Color(0xCECECE));
         resultPanel3.add(extraLabel3);
+
+        JPanel resultPanel4 = new JPanel();
+        resultPanel4.setBounds(20, 480, 380, 40);
+        resultPanel4.setBackground(new Color(0xCECECE));
+        resultPanel4.add(extraLabel4);
 
         JLabel logo = new JLabel(new ImageIcon("logo_fes2.png")); //adding the logo
         logo.setBounds(485, 340, 260, 140);
@@ -80,6 +89,7 @@ public class MoneyExchange {
         frame.add(resultPanel1);
         frame.add(resultPanel2);
         frame.add(resultPanel3);
+        frame.add(resultPanel4);
         frame.add(convertButton);
         frame.add(logo);
 
@@ -94,44 +104,51 @@ public class MoneyExchange {
 
                 if (fromCurrency=="Ugx" && toCurrency=="USD") {
                     double result = amountValue*(0.00026);
-                    extraLabel3.setText("The value of converted currency in " + toCurrency + " is: " + result);
                     extraLabel1.setText("Converting from: " + fromCurrency + " to: " + toCurrency);
-                    extraLabel2.setText("The value of currency in " + fromCurrency + " is: " + amountValue);
+                    extraLabel2.setText("The rate of " + fromCurrency + " to " + toCurrency+" is: 0.00026");
+                    extraLabel3.setText("The value of currency in " + fromCurrency + " is: " + amountValue);
+                    extraLabel4.setText("The value of converted currency in " + toCurrency + " is: " + result);
+
                 }
 
                 else if (fromCurrency=="Ugx" && toCurrency=="EUR") {
                     double result = amountValue*(0.00025);
-                    extraLabel3.setText("The value of converted currency in " + toCurrency + " is: " + result);
                     extraLabel1.setText("Converting from: " + fromCurrency + " to: " + toCurrency);
-                    extraLabel2.setText("The value of currency in " + fromCurrency + " is: " + amountValue);
+                    extraLabel2.setText("The rate of " + fromCurrency + " to " + toCurrency+" is: 0.00025");
+                    extraLabel3.setText("The value of currency in " + fromCurrency + " is: " + amountValue);
+                    extraLabel4.setText("The value of converted currency in " + toCurrency + " is: " + result);
                 }
 
                 else if (fromCurrency=="USD" && toCurrency=="Ugx") {
                     double result = amountValue*(3805);
-                    extraLabel3.setText("The value of converted currency in " + toCurrency + " is: " + result);
                     extraLabel1.setText("Converting from: " + fromCurrency + " to: " + toCurrency);
-                    extraLabel2.setText("The value of currency in " + fromCurrency + " is: " + amountValue);
+                    extraLabel2.setText("The rate of " + fromCurrency + " to " + toCurrency+" is: 3805");
+                    extraLabel3.setText("The value of currency in " + fromCurrency + " is: " + amountValue);
+                    extraLabel4.setText("The value of converted currency in " + toCurrency + " is: " + result);
                 }
 
                 else if (fromCurrency=="EUR" && toCurrency=="Ugx") {
                     double result = amountValue*(4050);
-                    extraLabel3.setText("The value of converted currency in " + toCurrency + " is: " + result);
                     extraLabel1.setText("Converting from: " + fromCurrency + " to: " + toCurrency);
-                    extraLabel2.setText("The value of currency in " + fromCurrency + " is: " + amountValue);
+                    extraLabel2.setText("The rate of " + fromCurrency + " to " + toCurrency+" is: 4050");
+                    extraLabel3.setText("The value of currency in " + fromCurrency + " is: " + amountValue);
+                    extraLabel4.setText("The value of converted currency in " + toCurrency + " is: " + result);
                 }
 
                 else if (fromCurrency == "USD" && toCurrency == "EUR") {
                     double result = amountValue*0.94;
-                    extraLabel3.setText("The value of converted currency in " + toCurrency + " is: " + result);
                     extraLabel1.setText("Converting from: " + fromCurrency + " to: " + toCurrency);
-                    extraLabel2.setText("The value of currency in " + fromCurrency + " is: " + amountValue);
+                    extraLabel2.setText("The rate of " + fromCurrency + " to " + toCurrency+" is: 0.94");
+                    extraLabel3.setText("The value of currency in " + fromCurrency + " is: " + amountValue);
+                    extraLabel4.setText("The value of converted currency in " + toCurrency + " is: " + result);
                 }
 
                 else if (fromCurrency == "EUR" && toCurrency =="USD") {
                     double result = amountValue*1.05;
-                    extraLabel3.setText("The value of converted currency in " + toCurrency + " is: " + result);
                     extraLabel1.setText("Converting from: " + fromCurrency + " to: " + toCurrency);
-                    extraLabel2.setText("The value of currency in " + fromCurrency + " is: " + amountValue);
+                    extraLabel2.setText("The rate of " + fromCurrency + " to " + toCurrency+" is: 1.05");
+                    extraLabel3.setText("The value of currency in " + fromCurrency + " is: " + amountValue);
+                    extraLabel4.setText("The value of converted currency in " + toCurrency + " is: " + result);
                 }
 
             }
