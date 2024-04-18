@@ -100,7 +100,16 @@ public class MoneyExchange {
             public void actionPerformed(ActionEvent e) {
                 String fromCurrency = (String) comboBox1.getSelectedItem();
                 String toCurrency = (String) comboBox2.getSelectedItem();
-                double amountValue = Double.parseDouble(amount.getText());
+                double amountValue = 0;
+
+                //exception handling if invalid input of amount
+                try{
+                    amountValue = Double.parseDouble(amount.getText());
+                   }
+                catch(NumberFormatException ex){
+                    extraLabel3.setText("Invalid Input of amount");
+                    return;  //this will return an error if conversion to a number fails
+                }
 
                 if (fromCurrency=="Ugx" && toCurrency=="USD") {
                     double result = amountValue*(0.00026);
@@ -108,7 +117,6 @@ public class MoneyExchange {
                     extraLabel2.setText("The rate of " + fromCurrency + " to " + toCurrency+" is: 0.00026");
                     extraLabel3.setText("The value of currency in " + fromCurrency + " is: " + amountValue);
                     extraLabel4.setText("The value of converted currency in " + toCurrency + " is: " + result);
-
                 }
 
                 else if (fromCurrency=="Ugx" && toCurrency=="EUR") {
