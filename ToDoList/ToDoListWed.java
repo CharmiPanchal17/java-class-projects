@@ -4,6 +4,8 @@ import java.awt.*;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.*;
+import java.io.BufferedWriter;
+import java.io.BufferedReader;
 
 
 public class ToDoListWed extends JFrame{
@@ -35,6 +37,13 @@ public class ToDoListWed extends JFrame{
         JButton backButton = new JButton("Back<");
         backButton.setBounds(300, 400, 70, 25);
 
+        JButton saveToFile = new JButton("Save");
+        saveToFile.setBounds(390, 370, 80, 25);
+
+        JButton retrieveFile = new JButton("Retrieve");
+        retrieveFile.setBounds(380, 340, 100, 25);
+
+
     
 
        //adding components to frame2 
@@ -44,6 +53,8 @@ public class ToDoListWed extends JFrame{
         add(addButton);
         add(backButton);
         add(removeButton);
+        add(saveToFile);
+        add(retrieveFile);
 
 
         addButton.addActionListener(new ActionListener() {
@@ -83,7 +94,7 @@ public class ToDoListWed extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 
                 if(e.getSource() == buttonThurssday){
-                
+                    dispose();
                     new ToDoListThu();
                     
                 }
@@ -101,6 +112,59 @@ public class ToDoListWed extends JFrame{
                 }
             }
         });
+
+        // adding what is typed to a file when save button is clicked
+        saveToFile.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("C:\\Users\\Dell\\Desktop\\java-class-projects\\ToDoList\\Output_Wed.txt"));
+                    
+                    for (Component component : getContentPane().getComponents()) {
+                        if (component instanceof JCheckBox) {
+                            JCheckBox checkBox = (JCheckBox) component;
+                            writer.write(checkBox.getText());
+                            writer.newLine();
+                        }
+                    }
+
+                    writer.close();
+                } catch (java.io.IOException ex) {
+                    System.out.println(ex.getMessage());
+                }
+            }
+        });
+
+
+        // reading each line from the file back to the frame as a check box
+        retrieveFile.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    BufferedReader reader = new BufferedReader(new java.io.FileReader("C:\\Users\\Dell\\Desktop\\java-class-projects\\ToDoList\\Output_Wed.txt"));
+
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        JCheckBox checkBox = new JCheckBox();
+                        checkBox.setText(line);
+                        checkBox.setSelected(false);
+                        checkBox.setBounds(20, getContentPane().getComponentCount() * 20 + 60, 300, 20);
+                        add(checkBox);
+                    }
+
+                    reader.close();
+                    revalidate();
+                    repaint();
+
+
+                }
+                catch (java.io.IOException ex) {
+                    System.out.println(ex.getMessage());
+                }
+
+            }
+        });
+
 
         setVisible(true);
     }
