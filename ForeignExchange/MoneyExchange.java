@@ -174,7 +174,7 @@ public class MoneyExchange {
                     }
 
                     //adding all information to a file
-                    BufferedWriter outputData = new BufferedWriter(new FileWriter("C:\\Users\\Dell\\Desktop\\java-class-projects\\ForeignExchange\\output.txt"));
+                    BufferedWriter outputData = new BufferedWriter(new FileWriter("output.txt"));
                     outputData.write("The currency you converted from is: " + fromCurrency + "\n");
                     outputData.write("The currency you converted to is: " + toCurrency + "\n");
                     outputData.write("The exchange rate of " + fromCurrency + " to " + toCurrency + " is: " + rate + "\n");

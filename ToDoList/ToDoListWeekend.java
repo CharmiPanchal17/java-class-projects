@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 
 public class ToDoListWeekend extends JFrame{
 
@@ -30,8 +32,8 @@ public class ToDoListWeekend extends JFrame{
         JButton removeButton = new JButton("Remove");
         removeButton.setBounds(415, 45, 81, 20);
 
-        JButton buttonDay = new JButton("Monday<");
-        buttonDay.setBounds(380, 400, 100, 25);
+        JButton buttonMonday = new JButton("Monday<");
+        buttonMonday.setBounds(380, 400, 100, 25);
 
         JButton backButton = new JButton("Back<");
         backButton.setBounds(300, 400, 70, 25);
@@ -46,7 +48,7 @@ public class ToDoListWeekend extends JFrame{
        //adding components to frame2 
         add(label2);
         add(text2);
-        add(buttonDay);
+        add(buttonMonday);
         add(addButton);
         add(backButton);
         add(removeButton);
@@ -86,11 +88,11 @@ public class ToDoListWeekend extends JFrame{
             });
             
 
-        buttonDay.addActionListener(new ActionListener() {
+        buttonMonday.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 
-                if(e.getSource() == buttonDay){
+                if(e.getSource() == buttonMonday){
                     dispose();
                     new ToDoListMon();
                     
@@ -114,7 +116,7 @@ public class ToDoListWeekend extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("C:\\Users\\Dell\\Desktop\\java-class-projects\\ToDoList\\Output_Weekend.txt"));
+                    BufferedWriter writer = new BufferedWriter(new FileWriter("Output_Weekend.txt"));
                     
                     for (Component component : getContentPane().getComponents()) {
                         if (component instanceof JCheckBox) {
@@ -137,12 +139,12 @@ public class ToDoListWeekend extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    BufferedReader reader = new BufferedReader(new java.io.FileReader("C:\\Users\\Dell\\Desktop\\java-class-projects\\ToDoList\\Output_Weekend.txt"));
+                    BufferedReader reader = new BufferedReader(new FileReader("Output_Weekend.txt"));
 
-                    String line;
-                    while ((line = reader.readLine()) != null) {
+                    String lineCheckBox;
+                    while ((lineCheckBox = reader.readLine()) != null) {
                         JCheckBox checkBox = new JCheckBox();
-                        checkBox.setText(line);
+                        checkBox.setText(lineCheckBox);
                         checkBox.setSelected(false);
                         checkBox.setBounds(20, getContentPane().getComponentCount() * 20 + 60, 300, 20);
                         add(checkBox);

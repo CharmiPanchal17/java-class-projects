@@ -5,6 +5,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.*;
 import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.BufferedReader;
 
 
@@ -118,7 +120,7 @@ public class ToDoListWed extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("C:\\Users\\Dell\\Desktop\\java-class-projects\\ToDoList\\Output_Wed.txt"));
+                    BufferedWriter writer = new BufferedWriter(new FileWriter("Output_Wed.txt"));
                     
                     for (Component component : getContentPane().getComponents()) {
                         if (component instanceof JCheckBox) {
@@ -141,7 +143,7 @@ public class ToDoListWed extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    BufferedReader reader = new BufferedReader(new java.io.FileReader("C:\\Users\\Dell\\Desktop\\java-class-projects\\ToDoList\\Output_Wed.txt"));
+                    BufferedReader reader = new BufferedReader(new FileReader("Output_Wed.txt"));
 
                     String line;
                     while ((line = reader.readLine()) != null) {
