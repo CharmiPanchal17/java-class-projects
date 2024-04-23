@@ -5,10 +5,31 @@ import java.io.FileWriter;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class MoneyExchange {
-    
-    public static void main(String[] args) {
+//super class
+class ForeignCurrencyConvertor{
 
+    protected String fromCurrency;
+    protected String toCurrency;
+    protected double amountValue;
+    protected double result;
+    protected double rate;
+
+    ForeignCurrencyConvertor(String fromCurrency, String toCurrency, double amountAmount){
+        this.fromCurrency = fromCurrency;
+        this.toCurrency = toCurrency;
+        this.amountValue = amountAmount;
+    }
+}
+
+//child class
+public class MoneyExchangeSystem extends ForeignCurrencyConvertor{
+
+    MoneyExchangeSystem(String fromCurrency, String toCurrency, double amountAmount){
+        super(fromCurrency, toCurrency, amountAmount);
+    }
+
+    public static void main(String[] args) {
+        
         JFrame frame = new JFrame("FOREIGN EXCHANGE SYSTEM");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 600);
@@ -45,10 +66,6 @@ public class MoneyExchange {
         JButton convertButton = new JButton("Convert");
         convertButton.setBounds(590, 200, 100, 30);
 
-        //for inputing the exchange rate
-        // JLabel rateLabel = new JLabel("Click here to add the exchange rate: ");
-        // rateLabel.setBounds(20, 170, 300, 20);
-        
 
         JLabel extraLabel1 = new JLabel();
 
@@ -91,7 +108,6 @@ public class MoneyExchange {
         frame.add(label2);
         frame.add(label3);
         frame.add(label4);
-        // frame.add(rateLabel);
         frame.add(amount);
         frame.add(resultPanel1);
         frame.add(resultPanel2);
@@ -193,5 +209,6 @@ public class MoneyExchange {
         });
 
         frame.setVisible(true);
+
     }
 }

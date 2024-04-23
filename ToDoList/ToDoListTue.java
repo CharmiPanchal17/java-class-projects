@@ -17,7 +17,7 @@ public class ToDoListTue extends JFrame{
 
         //creating a frame
         setTitle("Tuesday ToDo List");
-        setSize(520,500);
+        setSize(560,500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
         getContentPane().setBackground(new Color(0xE6BBAD));
@@ -29,23 +29,22 @@ public class ToDoListTue extends JFrame{
         text2.setBounds(220, 20, 200, 20);
 
         JButton addButton = new JButton("Add");
-        addButton.setBounds(420, 20, 60, 20);
+        addButton.setBounds(420, 20, 110, 20);
 
-        
         JButton removeButton = new JButton("Remove");
-        removeButton.setBounds(415, 45, 81, 20);
+        removeButton.setBounds(420, 45, 110, 20);
 
         JButton buttonWednesday = new JButton(">Wednesday");
-        buttonWednesday.setBounds(380, 400, 110, 25);
+        buttonWednesday.setBounds(420, 400, 110, 25);
 
-        JButton backButton = new JButton("Back<");
-        backButton.setBounds(300, 400, 70, 25);
+        JButton backButton = new JButton("<Back");
+        backButton.setBounds(420, 430, 110, 25);
 
         JButton saveToFile = new JButton("Save");
-        saveToFile.setBounds(390, 370, 80, 25);
+        saveToFile.setBounds(420, 370, 110, 25);
 
         JButton retrieveFile = new JButton("Retrieve");
-        retrieveFile.setBounds(380, 340, 100, 25);
+        retrieveFile.setBounds(420, 340, 110, 25);
 
 
        //adding components to frame2 
