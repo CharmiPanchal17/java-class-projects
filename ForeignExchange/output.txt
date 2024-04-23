@@ -1,5 +1,12 @@
 The currency you converted from is: Ugx
+<<<<<<< HEAD
 The currency you converted to is: EUR
 The exchange rate of Ugx to EUR is: 2.5E-4
 The amount in Ugx you converted is: 10000.0
 The converted amount in EUR is: 2.5
+=======
+The currency you converted to is: USD
+The exchange rate of Ugx to USD is: 10000.0
+The amount in Ugx you converted is: 9.0
+The converted amount in USD is: 90000.0
+>>>>>>> 91b0426b73403cc96a1a21c24601230395ca7e93
